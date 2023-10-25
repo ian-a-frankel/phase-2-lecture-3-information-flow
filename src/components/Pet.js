@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-function Pet({pet}){
+function Pet({pet, deletePet}){
 
     const [favorite, setFavorite] = useState(false)
 
@@ -13,7 +13,7 @@ function Pet({pet}){
             <img src={pet.image} alt={pet.name} />
             <button onClick={toggleFavorite} className={favorite ? "favorite-button active" : "favorite-button"}>{favorite ? '★' : '☆'}</button>
             <h4>{pet.name}</h4>
-            <button className="adopt-button">Adopt</button>
+            <button className="adopt-button" onClick={() => {deletePet(pet)}}>Adopt</button>
         </li>
     )
 }
